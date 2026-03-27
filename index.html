@@ -7,13 +7,37 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <main class="page">
-      <h1>Моя задача на сегодня:</h1>
-      <ul id="taskList"></ul>
-      <div class="task-form">
-        <input type="text" id="newTaskInput" placeholder="Новая задача...">
-        <button type="button" onclick="addTask()">Добавить задачу</button>
-      </div>
+    <main class="app">
+      <section class="app-card">
+        <div class="app-header">
+          <div>
+            <p class="eyebrow">Simple Web App</p>
+            <h1>Моя задача на сегодня</h1>
+            <p class="subtitle">Добавляйте, редактируйте и удаляйте задачи в одном окне.</p>
+          </div>
+          <div class="stats">
+            <div class="stat-box">
+              <span class="stat-label">Всего</span>
+              <strong id="totalTasks">0</strong>
+            </div>
+            <div class="stat-box">
+              <span class="stat-label">Выполнено</span>
+              <strong id="completedTasks">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <form id="taskForm" class="task-form">
+          <label class="sr-only" for="newTaskInput">Новая задача</label>
+          <input type="text" id="newTaskInput" placeholder="Новая задача..." maxlength="120">
+          <button id="submitButton" type="submit">Добавить задачу</button>
+        </form>
+
+        <p id="formHint" class="form-hint">Нажмите Enter или кнопку, чтобы добавить задачу.</p>
+
+        <ul id="taskList" class="task-list" aria-live="polite"></ul>
+        <p id="emptyState" class="empty-state">Список пока пуст. Добавьте первую задачу.</p>
+      </section>
     </main>
 
     <script src="script.js"></script>
